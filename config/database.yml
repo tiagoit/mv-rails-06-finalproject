@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: mv_rails_06_finalproject_development
+  database: finalproject_db
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
