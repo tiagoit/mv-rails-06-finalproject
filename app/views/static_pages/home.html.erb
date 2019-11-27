@@ -1,7 +1,22 @@
 <% provide(:title, "Home") %>
 
 <div class="row">
-  <div id="pos" class="col-12 col-sm-8 mb-3">
-    <h1>StaticPages#home</h1>
+  <div class="col-12 col-sm-4 mb-3">
+    <section class="posts">
+      <h3>Posts</h3>
+      <%= render @posts %>
+    </section>
+  </div>
+  <div class="col-12 col-sm-8 mb-3">
+    <!-- <section class="profile">
+      <h3>Profile</h3>
+    </section> -->
+    <!-- <section class="friends">
+      <h3>Friends</h3>
+    </section> -->
+    <section class="users">
+      <h3>Users</h3>
+      <%= render @users %>
+    </section>
   </div>
 </div>

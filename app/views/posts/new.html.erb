@@ -1,2 +1,14 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<% provide(:title, "New post") %>
+<h1>New post</h1>
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <%= form_for(@post) do |f| %>
+      <%= f.label :content %>
+      <%= f.text_area :content, class: 'form-control mb-3' %>
+
+      <%= f.hidden_field :user_id %>
+      <%= f.submit "Post it", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
