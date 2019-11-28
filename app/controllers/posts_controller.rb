@@ -33,5 +33,3 @@ class PostsController < ApplicationController
     params.require(:post).permit(:content, :user_id)
   end
 end
-
-

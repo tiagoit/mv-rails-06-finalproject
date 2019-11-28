@@ -35,7 +35,7 @@ Style/EmptyMethod:
 Style/SymbolArray:
   Enabled: false
 
-Layout/AlignHash:
+Layout/HashAlignment:
   EnforcedColonStyle: key
 Layout/ExtraSpacing:
   AllowForAlignment: false
