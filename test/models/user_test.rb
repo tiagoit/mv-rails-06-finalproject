@@ -2,7 +2,10 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   test "valid user" do
-    user = User.new(name: "User test", email: "email@example.org", password: "password", password_confirmation: "password")
+    user = User.new(name: "User test",
+                    email: "email@example.org",
+                    password: "password",
+                    password_confirmation: "password")
     assert user.valid?
   end
 
@@ -19,9 +22,15 @@ class UserTest < ActiveSupport::TestCase
   test "invalid user bad password" do
     user = User.new(name: "User test", email: "email@example.org", password_confirmation: "password")
     assert_not user.valid?
-    user = User.new(name: "User test", email: "email@example.org", password: "password2", password_confirmation: "password")
+    user = User.new(name: "User test",
+                    email: "email@example.org",
+                    password: "password2",
+                    password_confirmation: "password")
     assert_not user.valid?
-    user = User.new(name: "User test", email: "email@example.org", password: "password", password_confirmation: "password2")
+    user = User.new(name: "User test",
+                    email: "email@example.org",
+                    password: "password",
+                    password_confirmation: "password2")
     assert_not user.valid?
     user = User.new(name: "User test", email: "email@example.org")
     assert_not user.valid?
