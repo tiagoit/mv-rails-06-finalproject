@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :rememberable, :validatable
 
   has_many :posts
+
+  # validations
+  validates :name, presence: true, length: { maximum: 50 }
 end
