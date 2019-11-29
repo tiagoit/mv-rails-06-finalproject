@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
-  resources :posts
+  resources :posts, only: [:index, :new, :create]
   devise_for :users, path: '', path_names: { sign_in: 'login', 
                                              sign_out: 'logout', 
                                              password: 'secret', 

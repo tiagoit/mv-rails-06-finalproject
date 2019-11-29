@@ -17,15 +17,6 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
-  def show
-  end
-
-  def edit
-  end
-
-  def destroy
-  end
-
   private
 
   def post_params

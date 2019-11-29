@@ -1,33 +1,26 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
-  # test "should get index" do
-  #   get posts_index_url
-  #   assert_response :success
-  # end
-  #
-  # test "should get new" do
-  #   get posts_new_url
-  #   assert_response :success
-  # end
-  #
-  # test "should get create" do
-  #   get posts_create_url
-  #   assert_response :success
-  # end
-  #
-  # test "should get show" do
-  #   get posts_show_url
-  #   assert_response :success
-  # end
-  #
-  # test "should get edit" do
-  #   get posts_edit_url
-  #   assert_response :success
-  # end
-  #
-  # test "should get destroy" do
-  #   get posts_destroy_url
-  #   assert_response :success
-  # end
+  include Devise::Test::IntegrationHelpers
+
+  def setup
+    sign_in users(:one)
+  end
+
+  test "should get index" do
+    get posts_path
+    assert_response :success
+  end
+
+  test "should get new" do
+    get new_post_path
+    assert_response :success
+  end
+
+  test "should create a new post and redirect to root" do
+    assert_difference 'Post.count', 1 do
+      post posts_path, params: { post: { content: 'Post content' } }
+    end
+    assert_redirected_to root_path
+  end
 end
