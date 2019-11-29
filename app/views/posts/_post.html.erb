@@ -1,1 +1,9 @@
-<%= post.content %>
+<div class="card mb-4">
+  <div class="card-header">
+    <h6><%= post.user.name %></h6>
+  </div>
+  <div class="card-body">
+    <p><%= post.content %></p>
+    <small class="badge badge-success float-right"><%= time_ago_in_words(post.created_at) %></small>
+  </div>
+</div>
