@@ -18,5 +18,7 @@ class PostInterfaceTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
     follow_redirect!
     assert_match new_post_content, response.body
+    assert_not flash.empty?
+    assert_equal"Post created.", flash[:success]
   end
 end
