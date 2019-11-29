@@ -8,4 +8,7 @@ Rails.application.routes.draw do
                                              unlock: 'unblock', 
                                              registration: '', 
                                              sign_up: 'sign-up' }
+  
+  # users
+  resources :users, only: [:index, :show]
 end
