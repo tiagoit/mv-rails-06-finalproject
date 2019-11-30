@@ -1,0 +1,17 @@
+<% provide(:title, "Home") %>
+
+<div class="row">
+  <div class="offset-lg-4 col-lg-4 mb-3">
+    <section class="posts mb-4">
+      <h3>Posts</h3>
+      <%= form_with(model: @post) do |f| %>
+        <%= f.text_area :content, class: "form-control mb-2", rows: 5 %>
+        <%= f.submit "Publish", class: "btn btn-block btn-primary" %>
+      <% end %>
+    </section>
+    <section>
+      <h3>Feed</h3>
+      <%= render @posts %>
+    </section>
+  </div>
+</div>

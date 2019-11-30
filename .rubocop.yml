@@ -35,8 +35,6 @@ Style/EmptyMethod:
 Style/SymbolArray:
   Enabled: false
 
-Layout/AlignHash:
-  EnforcedColonStyle: key
 Layout/ExtraSpacing:
   AllowForAlignment: false
 Layout/MultilineMethodCallIndentation:

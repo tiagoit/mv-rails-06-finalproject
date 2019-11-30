@@ -1,0 +1,13 @@
+<section class="profile">
+  <h2>My profile</h2>
+  <div class="info">
+    <ul>
+      <li><%= @user.name %></li>
+      <li><%= @user.email %></li>
+    </ul>
+  </div>
+</section>
+<section>
+  <h2>My Timeline</h2>
+  <%= render @posts %>
+</section>
