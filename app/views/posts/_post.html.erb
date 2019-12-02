@@ -1,7 +1,13 @@
 <div class="card mb-4">
   <div class="card-header">
-    <h6><%= post.user.name %></h6>
-    <i class="far fa-heart"></i>
+    <h6 class="d-inline-block mr-auto"><%= post.user.name %></h6>
+    <h6 class="d-inline-block float-right">
+      <% if liked?(post) %>
+        <%= link_to raw('<i class="fas fa-heart"></i>'), likes_path(post), method: :delete %>
+      <% else %>
+        <%= link_to raw('<i class="far fa-heart"></i>'), likes_path, method: :post, post: post %>
+      <% end %>
+    </h6>
   </div>
   <div class="card-body">
     <p><%= post.content %></p>
