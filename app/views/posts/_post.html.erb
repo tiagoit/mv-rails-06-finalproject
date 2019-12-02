@@ -5,7 +5,7 @@
       <% if liked?(post) %>
         <%= link_to raw('<i class="fas fa-heart"></i>'), likes_path(post), method: :delete %>
       <% else %>
-        <%= link_to raw('<i class="far fa-heart"></i>'), likes_path, method: :post, post: post %>
+        <%= link_to raw('<i class="far fa-heart"></i>'), likes_path(post: post), method: :post %>
       <% end %>
     </h6>
   </div>
