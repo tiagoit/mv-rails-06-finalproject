@@ -6,7 +6,7 @@ class CommentTest < ActiveSupport::TestCase
     @post = posts(:one)
     @content = "my text"
   end
-  
+
   test "valid comment" do
     comment = Comment.new(user_id: @user.id, post_id: @post.id, content: @content)
     assert comment.valid?

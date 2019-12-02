@@ -5,7 +5,7 @@ class LikeTest < ActiveSupport::TestCase
     @user = users(:one)
     @post = posts(:one)
   end
-  
+
   test "valid like" do
     like = Like.new(user_id: @user.id, post_id: @post.id)
     assert like.valid?

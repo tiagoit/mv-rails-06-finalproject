@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CommentsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
-  
+
   def setup
     login_as @user = users(:one)
     @post = posts(:one)
@@ -21,7 +21,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
       post comments_path, params: { comment: { post_id: @post.id, content: "" } }
     end
   end
-  
+
   test "insert a new comment" do
     assert_difference 'Comment.count', 1 do
       post comments_path, params: { comment: { post_id: @post.id, content: @content } }
