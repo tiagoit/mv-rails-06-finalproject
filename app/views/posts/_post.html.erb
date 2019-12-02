@@ -3,7 +3,7 @@
     <h6 class="d-inline-block mr-auto"><%= post.user.name %></h6>
     <h6 class="d-inline-block float-right">
       <% if liked?(post) %>
-        <%= link_to raw('<i class="fas fa-heart"></i>'), likes_path(post), method: :delete %>
+        <%= link_to raw('<i class="fas fa-heart"></i>'), like_path(post), method: :delete %>
       <% else %>
         <%= link_to raw('<i class="far fa-heart"></i>'), likes_path(post: post), method: :post %>
       <% end %>
