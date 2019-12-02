@@ -15,4 +15,10 @@
     <p><%= post.content %></p>
     <small class="badge badge-success float-right"><%= time_ago_in_words(post.created_at) %></small>
   </div>
+  <div class="card-footer">
+    <%= form_with model: post.comments.build, class: 'form-inline d-flex' do |f| %>
+      <%= f.text_field :content, class: 'form-control flex-grow-1 mr-2', placeholder: 'Comment...' %>
+      <%= f.submit "Comment", class: "btn btn-primary"  %>
+    <% end %>
+  </div>
 </div>
