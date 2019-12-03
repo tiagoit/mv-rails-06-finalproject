@@ -11,10 +11,13 @@ Rails.application.routes.draw do
   
   # users
   resources :users, only: [:index, :show]
-  
+
   # likes
   resources :likes, only: [:create, :destroy]
 
   # comments
   resources :comments, only: [:create]
+
+  # friendships
+  post "friendship/request/:friend_id", to: 'friendships#friendship_request', as: 'friendship_request'
 end

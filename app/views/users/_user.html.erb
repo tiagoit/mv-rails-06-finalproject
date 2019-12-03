@@ -1,1 +1,5 @@
-<li class="list-group-item"><%= user.name %> <button class="btn btn-primary float-right">Add</button></li>
+<% if !user.eql?(current_user) %>
+  <li class="list-group-item"><%= user.name %>
+    <%= button_to "Add", friendship_request_path(user.id), class: 'btn btn-primary float-right' %>
+  </li>
+<% end %>
