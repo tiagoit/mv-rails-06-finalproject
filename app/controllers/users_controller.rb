@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    request = Friendship.where(user_id: current_user.id).select("friend_id")
+    @users = User.where.not(id: request)
   end
 
   def show
