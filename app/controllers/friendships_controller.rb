@@ -11,7 +11,16 @@ class FriendshipsController < ApplicationController
     redirect_back fallback_location: root_path
   end
 
-  # def friendship_accept
-  #   current_user
-  # end
+  def friendship_accept
+    user = User.find_by(id: params[:request_id])
+    request = Friendship.find_by(user_id: user.id, friend_id: current_user.id)
+    
+    if request.update(confirmed: true)
+      flash[:success] = "Now #{user.name} is your new friend!"
+    else
+      flash[:danger] = 'Something went wrong! :('
+    end
+
+    redirect_back fallback_location: root_path
+  end
 end

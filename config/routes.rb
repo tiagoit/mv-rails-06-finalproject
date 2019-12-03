@@ -20,4 +20,5 @@ Rails.application.routes.draw do
 
   # friendships
   post "friendship/request/:friend_id", to: 'friendships#friendship_request', as: 'friendship_request'
+  post "friendship/accept/:request_id", to: 'friendships#friendship_accept', as: 'friendship_accept'
 end

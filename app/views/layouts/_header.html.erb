@@ -20,7 +20,7 @@
               <% current_user.pending_friends.each do |request| %>
                 <li class="dropdown-item-text d-flex ">
                   <span class="flex-grow-1"><%= request.name %></span>
-                  <%= button_to "Add", friendship_request_path(request.id), class: 'btn btn-primary btn-sm' %></li>
+                  <%= button_to "Add", friendship_accept_path(request.id), class: 'btn btn-primary btn-sm' %></li>
                 <div class="dropdown-divider"></div>
               <% end %>
             </ul>
