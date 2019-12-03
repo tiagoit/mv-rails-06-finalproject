@@ -12,6 +12,20 @@
       <% if user_signed_in? %>
         <li class="nav-item"><%= link_to current_user.name, current_user, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to "Users", users_path, class: 'nav-link' %></li>
+        <% if current_user.pending_friends %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="notDropdown" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></a>
+            <ul class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="notDropdown">
+              <% current_user.pending_friends.each do |request| %>
+                <li class="dropdown-item-text d-flex ">
+                  <span class="flex-grow-1"><%= request.name %></span>
+                  <%= button_to "Add", friendship_request_path(request.id), class: 'btn btn-primary btn-sm' %></li>
+                <div class="dropdown-divider"></div>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
