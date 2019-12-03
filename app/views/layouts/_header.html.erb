@@ -10,12 +10,13 @@
       <li class="nav-item"><%= link_to "Home", root_path, class: 'nav-link' %></li>
 
       <% if user_signed_in? %>
-        <li class="nav-item dropdown">
-          <li class="nav-item"><%= link_to current_user.name, current_user, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to "Users", users_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to current_user.name, current_user, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to "Users", users_path, class: 'nav-link' %></li>
 
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">Account</a>
+          <div class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="navbarDropdown">
             <%#= link_to "Profile", current_user, class: 'dropdown-item' %>
             <%= link_to "My Posts", posts_path, class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
