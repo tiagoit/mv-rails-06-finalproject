@@ -41,6 +41,14 @@ Ruby - Rails - ActiveRecord - PostgreSQL - Heroku - Guard - Devise - Omniauth - 
 ### Database structure
 ![ERD](https://github.com/ferreirati/mv-rails-06-finalproject/blob/develop/docs/ERD.png)
 
+### Postgre Database (install and management for Ubuntu 18)
+- Install with `$ sudo apt install postgresql-11`
+- `$ sudo service postgresql <cmd>` [force-reload | reload | restart | start | status | stop]
+- Start *postgres user* session `$ sudo su - postgres`
+- Connect to server `$ psql -c "alter user postgres with password 'StrongPassword'"`
+- `$ createuser <myusername> --pwprompt`
+
+
 ### Installation
 - `bundle --without production`
 - `yarn install --check-files`
