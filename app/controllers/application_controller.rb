@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!, :get_notifications
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :get_notifications, unless: :devise_controller?
 
   # @return [User]
   def current_user
