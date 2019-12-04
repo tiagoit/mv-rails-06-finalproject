@@ -23,19 +23,17 @@ class User < ApplicationRecord
   # INSTANCE METHODS
   ##############################################################################################################
   def friends
-    friends_array = friendships.map { |friendship| friendship.friend_id if friendship.confirmed }
-    friends_array += inverse_friendships.map { |friendship| friendship.user_id if friendship.confirmed }
-    friends_array.compact
+    friendships.map(&:user_id) & inverse_friendships.map(&:user_id)
   end
 
   # Requests made TO current_user
   def pending_acceptance
-    inverse_friendships.map { |friendship| friendship.user_id unless friendship.confirmed }.compact
+    inverse_friendships.map(&:user_id) - friendships.map(&:user_id)
   end
 
   # Requests made BY current_user
   def pending_friend_acceptance
-    friendships.map { |friendship| friendship.friend_id unless friendship.confirmed }.compact
+    friendships.map(&:user_id) - inverse_friendships.map(&:user_id)
   end
 
   def request_friendship(friend_id)
@@ -43,7 +41,7 @@ class User < ApplicationRecord
   end
 
   def accept_friendship(user_id)
-    inverse_friendships.find_by(user_id: user_id).update(confirmed: true)
+    request_friendship(user_id)
   end
 
   def friend?(user_id)
