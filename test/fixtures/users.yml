@@ -8,3 +8,8 @@ one:
   name: user name
   email: example@mail.com
   encrypted_password: <%= User.new.send(:password_digest, "123456") %>
+
+two:
+  name: user name 2
+  email: example2@mail.com
+  encrypted_password: <%= User.new.send(:password_digest, "123456") %>
