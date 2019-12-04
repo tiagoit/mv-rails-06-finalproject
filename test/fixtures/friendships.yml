@@ -2,10 +2,15 @@
 
 one:
   user: one
-  friend: one
+  friend: two
   confirmed: false
 
 two:
   user: two
-  friend: two
+  friend: three
+  confirmed: false
+
+three:
+  user: three
+  friend: one
   confirmed: false
