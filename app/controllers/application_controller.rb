@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, :get_notifications
+  before_action :authenticate_user!, :notifications
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :get_notifications, unless: :devise_controller?
+  before_action :notifications, unless: :devise_controller?
 
   # @return [User]
   def current_user
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 
-  def get_notifications
+  def notifications
     @pending_friendship = User.where(id: current_user.pending_acceptance)
   end
 end

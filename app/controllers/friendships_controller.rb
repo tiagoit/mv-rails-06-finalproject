@@ -1,5 +1,4 @@
 class FriendshipsController < ApplicationController
-
   def request_friendship
     if current_user.request_friendship(params[:friend_id])
       flash[:success] = 'Friendship requested!'
