@@ -2,27 +2,23 @@ require 'test_helper'
 
 class FriendshipsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
-  
+
   def setup
-    login_as @user = users(:one)
-    @friend = users(:four)
-    @three = users(:three)
+    login_as @user_one = users(:one)
+    @user_two = users(:four)
   end
-  
-  test 'should create a new friend request' do
+
+  test 'should create and accept a new friend request' do
+    # create
     assert_difference 'Friendship.count', 1 do
-      post friendship_request_path(@friend.id)
+      post friendship_request_path(@user_two.id)
     end
-  end
-  
-  test 'should accept a friend request' do
-    assert_difference 'Friendship.count', 1 do
-      post friendship_request_path(@three.id)
-    end
+
+    # accept
     logout
-    login_as @three
-    assert_not @three.friend?(@user.id)
-    post friendship_accept_path(@user.id)
-    assert @three.friend?(@user.id)
+    login_as @user_two
+
+    post friendship_accept_path(@user_one.id)
+    assert flash[:success].eql? "Friendship accepted!"
   end
 end
