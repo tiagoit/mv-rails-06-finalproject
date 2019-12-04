@@ -1,7 +1,9 @@
-<h2>Users</h2>
-
-<div class="col-lg-4">
-  <ul class="list-group">
-    <%= render @users %>
-  </ul>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <ul class="list-group">
+      <%= render @pending_acceptance, locals: { action: 'accept' } %>
+      <%= render @pending_friend_acceptance, locals: { action: 'pending' } %>
+      <%= render @other, locals: { action: 'add' } %>
+    </ul>
+  </div>
 </div>

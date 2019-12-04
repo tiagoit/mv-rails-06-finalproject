@@ -7,7 +7,19 @@
     </ul>
   </div>
 </section>
+
 <section>
   <h2>My Timeline</h2>
   <%= render @posts %>
+</section>
+
+<section>
+  <h2>Friends</h2>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <ul class="list-group">
+        <%= render @friends, locals: { action: nil }  %>
+      </ul>
+    </div>
+  </div>
 </section>

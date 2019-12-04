@@ -1,1 +1,14 @@
-<li class="list-group-item"><%= user.name %> <button class="btn btn-primary float-right">Add</button></li>
+<li class="list-group-item d-flex">
+  <span class="flex-grow-1"><%= user.name %></span>
+  <% if locals[:action].eql?('accept') %>
+    <%= button_to "Accept", friendship_accept_path(user.id), class: 'btn btn-sm btn-primary'%>
+  <% end %>
+
+  <% if locals[:action].eql?('pending') %>
+    <span class="badge badge-info pt-2 pb-2">Pending</span>
+  <% end %>
+
+  <% if locals[:action].eql?('add') %>
+    <%= button_to "Add", friendship_request_path(user.id), class: 'btn btn-sm btn-primary' %>
+  <% end %>
+</li>

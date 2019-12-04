@@ -1,6 +1,7 @@
 <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
   <%= link_to "Sample APP", root_path, id: "logo", class: 'navbar-brand' %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -12,12 +13,25 @@
       <% if user_signed_in? %>
         <li class="nav-item"><%= link_to current_user.name, current_user, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to "Users", users_path, class: 'nav-link' %></li>
+        <% unless @pending_friendship.empty? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="notDropdown" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></a>
+            <ul class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="notDropdown">
+              <% @pending_friendship.each do |user| %>
+                <li class="dropdown-item-text d-flex ">
+                  <span class="flex-grow-1"><%= user.name %></span>
+                  <%= button_to "Accept", friendship_accept_path(user.id), class: 'btn btn-primary btn-sm' %></li>
+                <% unless user.eql?(@pending_friendship.last) %><div class="dropdown-divider"></div><% end %>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
              aria-haspopup="true" aria-expanded="false">Account</a>
           <div class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="navbarDropdown">
-            <%#= link_to "Profile", current_user, class: 'dropdown-item' %>
             <%= link_to "My Posts", posts_path, class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
