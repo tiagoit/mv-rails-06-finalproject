@@ -14,7 +14,7 @@ Devise.setup do |config|
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET'], token_params: { parse: :json },
-                  callback: 'https://tranquil-spire-08575.herokuapp.com/auth/facebook/callback'
+                  callback: 'https://tranquil-spire-08575.herokuapp.com/users/auth/facebook/callback'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
