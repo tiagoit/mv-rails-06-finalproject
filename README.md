@@ -36,7 +36,7 @@ Ruby - Rails - ActiveRecord - PostgreSQL - Heroku - Guard - Devise - Omniauth - 
 ### Links
 
 - **Assignment page** - [The Odin Project](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project)
-- **Live demo** - [Demo on Heroku](https://sleepy-caverns-46639.herokuapp.com/)
+- **Live demo** - [Demo on Heroku](https://tranquil-spire-08575.herokuapp.com)
 
 ### Database structure
 ![ERD](https://github.com/ferreirati/mv-rails-06-finalproject/blob/develop/docs/ERD.png)
