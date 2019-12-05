@@ -33,7 +33,7 @@ class User < ApplicationRecord
 
   # Requests made BY current_user
   def pending_friend_acceptance
-    friendships.map(&:user_id) - inverse_friendships.map(&:user_id)
+    friendships.map(&:friend_id) - inverse_friendships.map(&:friend_id)
   end
 
   def request_friendship(friend_id)

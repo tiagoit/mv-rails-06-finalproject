@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
   def index
-    users = User.where.not(id: current_user.id)
-    @pending_acceptance = users.select { |u| current_user.pending_acceptance.include?(u.id) }
-    @pending_friend_acceptance = users.select { |u| current_user.pending_friend_acceptance.include?(u.id) }
-    @other = users.reject do |u|
-      current_user.friends.include?(u.id) ||
-        current_user.pending_acceptance.include?(u.id) ||
-        current_user.pending_friend_acceptance.include?(u.id)
-    end
+    @pending_acceptance = User.find_by(id: current_user.pending_acceptance) || []
+    @pending_friend_acceptance = User.find_by(id: current_user.pending_friend_acceptance) || []
+
+    friends_or_pending = [current_user.id] +
+                         current_user.friends +
+                         current_user.pending_acceptance +
+                         current_user.pending_friend_acceptance
+
+    @other = User.where.not(id: friends_or_pending) || []
   end
 
   def show
