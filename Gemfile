@@ -31,7 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Auth
 gem 'devise'
-
+gem 'omniauth-facebook'
 # Env files
 gem 'dotenv-rails', groups: [:development, :test]
 
