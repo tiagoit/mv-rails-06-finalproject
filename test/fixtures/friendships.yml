@@ -6,5 +6,5 @@ one:
 
 two:
   user: two
-  friend: three
+  friend: one
 
