@@ -3,10 +3,8 @@
 one:
   user: one
   friend: two
-  confirmed: false
 
 two:
   user: two
   friend: three
-  confirmed: false
 
