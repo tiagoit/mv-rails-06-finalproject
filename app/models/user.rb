@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook]
+  devise :database_authenticatable, :registerable, :rememberable, :validatable
+  devise :omniauthable, omniauth_providers: %i[facebook]
 
   ##############################################################################################################
   # RELATIONS
