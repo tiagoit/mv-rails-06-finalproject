@@ -10,7 +10,7 @@ class UserTest < ActiveSupport::TestCase
     @user_six = users(:six)
     @user_seven = users(:seven)
   end
-  
+
   # validations  tests
   test "valid user" do
     user = User.new(name: "User test",
@@ -74,16 +74,16 @@ class UserTest < ActiveSupport::TestCase
       assert_not @user_one.pending_acceptance.include?(false_req)
     end
   end
-  
+
   test '#pending_friend_acceptance' do
     not_pending = [@user_two.id, @user_three.id, @user_four.id, @user_five.id]
     assert @user_one.pending_friend_acceptance.include?(@user_six.id)
-    
+
     not_pending.each do |false_pending|
       assert_not @user_one.pending_friend_acceptance.include?(false_pending)
     end
   end
-  
+
   test '#request_friendship #accept_friendship' do
     assert_not Friendship.find_by(user_id: @user_one.id, friend_id: @user_seven.id)
     @user_one.request_friendship(@user_seven.id)
@@ -92,15 +92,15 @@ class UserTest < ActiveSupport::TestCase
     @user_seven.accept_friendship(@user_one.id)
     assert Friendship.find_by(user_id: @user_seven.id, friend_id: @user_one.id)
   end
-  
+
   test '#friend?' do
     friends = [@user_two.id, @user_three.id]
     not_friends = [@user_four.id, @user_five.id, @user_six.id]
-    
+
     friends.each do |friend|
       assert @user_one.friend?(friend)
     end
-    
+
     not_friends.each do |not_friend|
       assert_not @user_one.friend?(not_friend)
     end
