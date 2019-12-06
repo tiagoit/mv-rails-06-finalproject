@@ -23,3 +23,18 @@ four:
   name: user name 4
   email: example4@mail.com
   encrypted_password: <%= User.new.send(:password_digest, "123456") %>
+
+five:
+  name: user name 5
+  email: example5@mail.com
+  encrypted_password: <%= User.new.send(:password_digest, "123456") %>
+
+six:
+  name: user name 6
+  email: example6@mail.com
+  encrypted_password: <%= User.new.send(:password_digest, "123456") %>
+
+seven:
+  name: user name 7
+  email: example7@mail.com
+  encrypted_password: <%= User.new.send(:password_digest, "123456") %>
