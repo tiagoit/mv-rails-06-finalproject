@@ -1,12 +1,24 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
+one-two:
   user: one
   friend: two
-  confirmed: false
 
-two:
+two-one:
   user: two
-  friend: three
-  confirmed: false
+  friend: one
 
+one-three:
+  user: one
+  friend: three
+
+three-one:
+  user: three
+  friend: one
+
+five-one:
+  user: five
+  friend: one
+
+one-six:
+  user: one
+  friend: six
